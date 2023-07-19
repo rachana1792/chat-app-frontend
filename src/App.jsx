@@ -12,7 +12,7 @@ function App() {
       <div>
         <Routes>
           <Route path="/" element={<Home socket={socket} />}></Route>
-          <Route path="/chat/:userName" element={<ChatRoom socket={socket} />}></Route>
+          <Route path="/chat/:userName/:roomId" element={<ChatRoom socket={socket} />}></Route>
         </Routes>
       </div>
     </BrowserRouter>

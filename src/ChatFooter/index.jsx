@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
-import {io} from 'socket.io-client';
 import { useParams } from 'react-router-dom';
 
-const socket1 = io.connect('http://localhost:3001');
 
 const ChatFooter = (socket) => {
 
     const [message, setMessage] = useState('');
 
-    const {userName} = useParams()
+    const {userName, roomId} = useParams()
 
 
     const handleSendMessage = (e) => {
@@ -19,6 +17,7 @@ const ChatFooter = (socket) => {
           name: userName,
           id: `${socket?.socket?.id}${Math.random()}`,
           socketID: socket?.socket?.id,
+          roomId: roomId
         });
       }
       setMessage('');
